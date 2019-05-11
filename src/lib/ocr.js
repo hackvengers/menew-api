@@ -7,7 +7,7 @@ const DIR_PATH = path.resolve(__dirname, '../uploads');
 
 const getOcrText = async imageUrl => {
   await sharp(path.resolve(DIR_PATH, imageUrl))
-    .resize(360)
+    .resize(800)
     .toFile(path.resolve(DIR_PATH, 'resize', imageUrl));
 
   const fileStream = fs.createReadStream(

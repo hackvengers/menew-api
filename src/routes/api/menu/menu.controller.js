@@ -82,7 +82,7 @@ exports.getMenuText = (req, res) => {
     .getDetectionLanguage(query)
     .then(langCode => translation.getTranslationText(langCode, target, query))
     .then(result => {
-      const { regions } = result;
-      res.json(regions);
+      const { translatedText } = result;
+      res.json({ translatedText });
     });
 };

@@ -48,6 +48,7 @@ const getTranslationText = (source, target, text) => {
         if (err) {
           reject(err);
         }
+        if (!body.message || !body.message.result) return;
         const {
           message: { result }
         } = body;
