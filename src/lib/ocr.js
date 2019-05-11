@@ -21,7 +21,7 @@ const getOcrText = image => {
         if (err) {
           reject(err);
         }
-        resolve(body);
+        resolve(JSON.parse(body));
       }
     );
   });
