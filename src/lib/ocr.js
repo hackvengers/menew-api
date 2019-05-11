@@ -1,10 +1,11 @@
 const request = require('request');
 const fs = require('fs');
+const path = require('path');
 
-const getOcrText = image => {
-  const fileStream = fs.createReadStream(
-    `${image.destination}${image.filename}`
-  );
+const DIR_PATH = path.resolve(__dirname, '../uploads');
+
+const getOcrText = imageUrl => {
+  const fileStream = fs.createReadStream(path.resolve(DIR_PATH, imageUrl));
 
   return new Promise((resolve, reject) => {
     request.post(
@@ -21,7 +22,7 @@ const getOcrText = image => {
         if (err) {
           reject(err);
         }
-        resolve(JSON.parse(body));
+        resolve({ imageUrl, result: JSON.parse(body) });
       }
     );
   });

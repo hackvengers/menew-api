@@ -12,6 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
+app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use('/api', require('./routes/api'));
 
 app.listen(port, () => {
