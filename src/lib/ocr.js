@@ -1,11 +1,18 @@
 const request = require('request');
 const fs = require('fs');
 const path = require('path');
+const sharp = require('sharp');
 
 const DIR_PATH = path.resolve(__dirname, '../uploads');
 
-const getOcrText = imageUrl => {
-  const fileStream = fs.createReadStream(path.resolve(DIR_PATH, imageUrl));
+const getOcrText = async imageUrl => {
+  await sharp(path.resolve(DIR_PATH, imageUrl))
+    .resize(360)
+    .toFile(path.resolve(DIR_PATH, 'resize', imageUrl));
+
+  const fileStream = fs.createReadStream(
+    path.resolve(DIR_PATH, 'resize', imageUrl)
+  );
 
   return new Promise((resolve, reject) => {
     request.post(
@@ -20,6 +27,7 @@ const getOcrText = imageUrl => {
       },
       (err, httpResponse, body) => {
         if (err) {
+          throw err;
           reject(err);
         }
         resolve({ imageUrl, result: JSON.parse(body) });
