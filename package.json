@@ -9,6 +9,8 @@
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
     "mkdirp": "^0.5.1",
+    "mongoose": "^5.5.7",
+    "mongoose-auto-increment": "^5.0.1",
     "morgan": "^1.9.1",
     "multer": "^1.4.1",
     "request": "^2.88.0",
