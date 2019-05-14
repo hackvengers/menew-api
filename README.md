@@ -1,5 +1,11 @@
 # ME:NEW API
 
+## Documentation
+
+You can find the API Documentation at the following link.
+
+- https://github.com/hackvengers/menew-api/wiki/API-Documentation
+
 ## Dependency
 
 ME:NEW API has the dependencies for the following libraries:
