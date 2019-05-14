@@ -1,8 +1,8 @@
 const request = require('request');
 
 const headers = {
-  'X-NCP-APIGW-API-KEY-ID': process.env.XNcpApigwApiKeyId,
-  'X-NCP-APIGW-API-KEY': process.env.XNcpApigwApiKey
+  'X-NCP-APIGW-API-KEY-ID': process.env.X_NCP_APIGW_API_KEY_ID,
+  'X-NCP-APIGW-API-KEY': process.env.X_NCP_APIGW_API_KEY
 };
 
 // https://apidocs.ncloud.com/ko/ai-naver/papago_language_detection/dect/

@@ -29,7 +29,7 @@ const getOcrText = async imageUrl => {
           file: fileStream
         },
         headers: {
-          'Ocp-Apim-Subscription-Key': process.env.OcpApimSubscriptionKey
+          'Ocp-Apim-Subscription-Key': process.env.OCP_APIM_SUBSCRIPTION_KEY
         }
       },
       (err, httpResponse, body) => {
